@@ -1,0 +1,12 @@
+# Legacy blog slug redirects
+/blog/porto-saúde-linha-pro-sorocaba-oportunidade /blog/porto-saude-linha-pro-sorocaba-oportunidade 301
+/blog/porto-saúde-linha-pro-sorocaba-oportunidade/ /blog/porto-saude-linha-pro-sorocaba-oportunidade 301
+/blog/benefícios-pluxee-vale-refeição-alimentação-flexivel /blog/beneficios-pluxee-vale-refeicao-alimentacao-flexivel 301
+/blog/benefícios-pluxee-vale-refeição-alimentação-flexivel/ /blog/beneficios-pluxee-vale-refeicao-alimentacao-flexivel 301
+
+/blog/seguro-para-transportadoras-roubo-carga-frota /blog/seguro-transportadoras-carga-frota-rctrc-rcfdc 301
+/blog/seguro-para-transportadoras-roubo-carga-frota/ /blog/seguro-transportadoras-carga-frota-rctrc-rcfdc 301
+/2022/* / 301
+/author/* / 301
+/category/* / 301
+/tag/* / 301
