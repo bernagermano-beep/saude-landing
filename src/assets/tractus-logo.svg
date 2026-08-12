@@ -1,0 +1,8 @@
+<svg width="360" height="116" viewBox="0 0 360 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tractus Corretora de Seguros">
+  <circle cx="58" cy="58" r="46" fill="#26738D"/>
+  <path d="M30 43C53 33 76 26 100 20C85 35 67 45 45 50C39 49 34 47 30 43Z" fill="#EAF4F7"/>
+  <path d="M23 60C51 72 79 80 107 84C88 98 64 104 42 96C32 87 25 75 23 60Z" fill="#558DA8"/>
+  <path d="M34 49C62 59 88 65 110 67C94 82 70 87 48 78C42 70 37 60 34 49Z" fill="#3E809A"/>
+  <text x="124" y="56" fill="#26738D" font-family="Arial Narrow, Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="1.5">TRACTUS</text>
+  <text x="126" y="82" fill="#558DA8" font-family="Arial Narrow, Arial, Helvetica, sans-serif" font-size="16" font-weight="800" letter-spacing="3.3">CORRETORA DE SEGUROS</text>
+</svg>

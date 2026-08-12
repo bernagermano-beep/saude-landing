@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 195 20% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 195 20% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 195 20% 20%;
+    --primary: 195 48% 34%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 195 38% 55%;
+    --primary-dark: 195 55% 28%;
+    --secondary: 195 20% 95%;
+    --secondary-foreground: 195 48% 34%;
+    --muted: 195 15% 96%;
+    --muted-foreground: 195 10% 50%;
+    --accent: 195 38% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 195 15% 90%;
+    --input: 195 15% 90%;
+    --ring: 195 48% 34%;
+    --radius: 0.75rem;
+    --gradient-primary: linear-gradient(135deg, hsl(195 55% 28%), hsl(195 48% 34%), hsl(195 38% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(195 20% 98%));
+    --shadow-soft: 0 4px 6px -1px hsl(195 48% 34% / 0.08), 0 2px 4px -1px hsl(195 48% 34% / 0.04);
+    --shadow-medium: 0 10px 15px -3px hsl(195 48% 34% / 0.1), 0 4px 6px -2px hsl(195 48% 34% / 0.05);
+    --shadow-large: 0 20px 25px -5px hsl(195 48% 34% / 0.15), 0 10px 10px -5px hsl(195 48% 34% / 0.08);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 195 30% 10%;
+    --foreground: 195 10% 95%;
+    --card: 195 25% 15%;
+    --card-foreground: 195 10% 95%;
+    --popover: 195 25% 15%;
+    --popover-foreground: 195 10% 95%;
+    --primary: 195 38% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 195 38% 65%;
+    --primary-dark: 195 48% 34%;
+    --secondary: 195 20% 20%;
+    --secondary-foreground: 195 10% 95%;
+    --muted: 195 15% 20%;
+    --muted-foreground: 195 10% 60%;
+    --accent: 195 38% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 195 20% 25%;
+    --input: 195 20% 25%;
+    --ring: 195 38% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(195 55% 28%), hsl(195 48% 34%), hsl(195 38% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(195 30% 10%), hsl(195 25% 12%));
+    --sidebar-background: 195 30% 10%;
+    --sidebar-foreground: 195 10% 95%;
+    --sidebar-primary: 195 38% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 195 20% 20%;
+    --sidebar-accent-foreground: 195 10% 95%;
+    --sidebar-border: 195 20% 25%;
+    --sidebar-ring: 195 38% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+@layer components {
+  .saude-landing .eyebrow { @apply text-xs font-bold uppercase tracking-[0.2em] text-[#26738d]; }
+  .saude-landing .section-title { @apply mt-4 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.035em] sm:text-5xl; }
+  .saude-landing label { @apply block text-sm font-semibold text-[#173844]; }
+  .saude-landing label input, .saude-landing label textarea { @apply mt-2 block w-full rounded-xl border border-[#dcecef] bg-[#fbfdfd] px-4 py-3 text-sm font-normal text-[#173844] outline-none transition placeholder:text-[#9ab0b5] focus:border-[#26738d] focus:ring-2 focus:ring-[#26738d]/15; }
+  .saude-landing label input { @apply h-12; }
+  .saude-landing .reveal-up { animation: saude-reveal-up 700ms cubic-bezier(.2,.75,.25,1) both; }
+  .saude-landing .logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+  .saude-landing .logo-track { display: flex; width: max-content; gap: 1rem; animation: saude-marquee 34s linear infinite; }
+  .saude-landing .carrier-logo { @apply flex h-[88px] min-w-[176px] flex-col items-center justify-center gap-1.5 rounded-2xl border border-[#dcecef] bg-white px-4 text-center text-xs font-semibold text-[#54727b] shadow-[0_8px_28px_rgba(23,56,68,.04)]; }
+  .saude-landing .carrier-logo img { max-height: 38px; max-width: 100px; object-fit: contain; }
+  .saude-landing .carrier-logo-amil img { max-width: 138px; }
+}
+
+@keyframes saude-reveal-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes saude-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .saude-landing *, .saude-landing *::before, .saude-landing *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}

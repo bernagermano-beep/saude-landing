@@ -1,0 +1,9 @@
+# Devi workflow rules
+
+- Create or identify a GitHub Issue before corrections, improvements, or features.
+- Work on a dedicated branch for each Issue.
+- Open a Pull Request for every deployable change.
+- Reference the Issue in the PR with Closes, Fixes, or Refs #number.
+- Do not deploy directly from local edits without explicit emergency approval.
+- Verify build, lint, accessibility, performance, SEO/GEO, motion, observability, and tests before review.
+- Do not publish client-facing copy or visual changes before explicit approval.
