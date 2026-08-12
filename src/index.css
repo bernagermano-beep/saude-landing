@@ -97,6 +97,7 @@ All colors MUST be HSL.
   .saude-landing .logo-track { display: flex; width: max-content; gap: 1rem; animation: saude-marquee 34s linear infinite; }
   .saude-landing .carrier-logo { @apply flex h-[88px] min-w-[176px] flex-col items-center justify-center gap-1.5 rounded-2xl border border-[#dcecef] bg-white px-4 text-center text-xs font-semibold text-[#54727b] shadow-[0_8px_28px_rgba(23,56,68,.04)]; }
   .saude-landing .carrier-logo img { max-height: 38px; max-width: 100px; object-fit: contain; }
+  .saude-landing .carrier-logo-amil img { max-width: 138px; }
 }
 
 @keyframes saude-reveal-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
