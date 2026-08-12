@@ -5,11 +5,21 @@ import Seo from "@/components/Seo";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { canonicalUrl } from "@/lib/site";
 import heroImage from "@/assets/hero-image.webp";
+import tractusLogo from "@/assets/logo-full-header.png";
 import { trackEvent } from "@/lib/analytics";
 
 const WHATSAPP_URL = "https://wa.me/5511995126841?text=";
 const whatsappMessage = encodeURIComponent("Olá! Quero agendar uma reunião para avaliar a troca do meu plano de saúde.");
-const carriers = ["Porto Saúde", "Bradesco Saúde", "Amil", "Alice", "Hapvida", "Seguros Unimed", "CarePlus", "Omint"];
+const carriers = [
+  { name: "Porto Saúde", logo: "/operator-logos/porto-saude.png", url: "https://www.portoseguro.com.br/porto-saude" },
+  { name: "Bradesco Saúde", logo: "/operator-logos/bradesco-saude.png", url: "https://www.bradescosaude.com.br/" },
+  { name: "Amil", logo: "/operator-logos/amil.png", url: "https://www.amil.com.br/" },
+  { name: "Alice", logo: "/operator-logos/alice.png", url: "https://alice.com.br/" },
+  { name: "Hapvida", logo: "/operator-logos/hapvida.png", url: "https://www.hapvida.com.br/" },
+  { name: "Seguros Unimed", logo: "/operator-logos/seguros-unimed.png", url: "https://www.segurosunimed.com.br/" },
+  { name: "CarePlus", logo: "/operator-logos/careplus.png", url: "https://careplus.com.br/" },
+  { name: "Omint", logo: "/operator-logos/omint.png", url: "https://www.omint.com.br/" },
+];
 
 const painPoints = [
   { icon: Sparkles, title: "Reajustes que apertam o orçamento", text: "O valor sobe, mas a sensação de cuidado e previsibilidade não acompanha." },
@@ -71,8 +81,8 @@ const SaudeLandingPage = () => {
 
       <header className="absolute inset-x-0 top-0 z-20 px-5 py-5 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <Link to="/" className="text-sm font-semibold tracking-[0.18em] text-white" aria-label="Tractus Corretora de Seguros">
-            TRACTUS<span className="text-[#a9d5df]">.</span>
+          <Link to="/" aria-label="Tractus Corretora de Seguros">
+            <img src={tractusLogo} alt="Tractus Corretora de Seguros" width={220} height={91} className="h-14 w-auto object-contain brightness-0 invert sm:h-16" />
           </Link>
           <button onClick={() => handleWhatsApp("Header Saúde Landing")} className="rounded-full border border-white/30 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white transition hover:bg-white hover:text-[#173844] sm:px-5 sm:text-sm">
             Agendar reunião
@@ -116,7 +126,7 @@ const SaudeLandingPage = () => {
         </div>
       </section>
 
-      <section className="overflow-hidden px-5 py-16 sm:px-8 lg:px-12"><div className="mx-auto max-w-7xl"><p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-[#6d8a92]">Operadoras que podem entrar na avaliação, conforme perfil e disponibilidade</p><div className="logo-marquee mt-9"><div className="logo-track">{[...carriers, ...carriers].map((carrier, index) => <div key={`${carrier}-${index}`} className="carrier-logo" aria-label={carrier}>{carrier}</div>)}</div></div></div></section>
+      <section className="overflow-hidden px-5 py-16 sm:px-8 lg:px-12"><div className="mx-auto max-w-7xl"><p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-[#6d8a92]">Operadoras que podem entrar na avaliação, conforme perfil e disponibilidade</p><div className="logo-marquee mt-9"><div className="logo-track">{[...carriers, ...carriers].map((carrier, index) => <a key={`${carrier.name}-${index}`} href={carrier.url} target="_blank" rel="noreferrer" className="carrier-logo" aria-label={`Visitar site da ${carrier.name}`}><img src={carrier.logo} alt={carrier.name} width={96} height={48} loading="lazy" /></a>)}</div></div></div></section>
 
       <section className="bg-[#173844] px-5 py-20 text-white sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="eyebrow text-[#bce5ec]">Por que conversar com a Tractus</p><h2 className="section-title text-white">Você não precisa descobrir tudo sozinho.</h2><p className="mt-6 leading-relaxed text-white/70">Trocar de plano é uma decisão que envolve saúde, orçamento e rotina. Nossa função é organizar a conversa para que você enxergue os critérios certos antes de decidir.</p></div><div className="grid gap-4 sm:grid-cols-2">{["Orientação humana", "Comparação responsável", "Critérios claros", "Sem pressão para decidir"].map((item) => <div key={item} className="rounded-2xl border border-white/15 bg-white/5 p-6"><Check className="mb-8 text-[#a9d5df]" size={22} /><p className="text-lg font-semibold">{item}</p></div>)}</div></div></section>
 
@@ -125,6 +135,7 @@ const SaudeLandingPage = () => {
       <section id="formulario" className="bg-[#e9f4f6] px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-start"><div><p className="eyebrow">O próximo passo é uma conversa</p><h2 className="section-title">Conte o que está acontecendo. A gente organiza o resto.</h2><p className="mt-6 leading-relaxed text-[#54727b]">Preencha o formulário e, se preferir, já fale com a equipe pelo WhatsApp. Não envie documentos nesta etapa.</p><a href={ctaUrl} onClick={() => handleWhatsApp("Formulário Saúde Landing")} className="mt-7 inline-flex items-center gap-3 font-bold text-[#26738d] hover:text-[#173844]"><MessageCircle size={19} /> Agendar sua reunião pelo WhatsApp</a></div><form onSubmit={handleSubmit} className="rounded-[2rem] bg-white p-6 shadow-[0_20px_70px_rgba(23,56,68,.1)] sm:p-10"><div className="grid gap-4 sm:grid-cols-2"><label>Nome<input required value={formData.name} onChange={(e) => update("name", e.target.value)} placeholder="Como podemos chamar você?" /></label><label>WhatsApp<input required type="tel" value={formData.phone} onChange={(e) => update("phone", e.target.value)} placeholder="(11) 99999-9999" /></label><label>E-mail<input type="email" value={formData.email} onChange={(e) => update("email", e.target.value)} placeholder="voce@email.com" /></label><label>Cidade<input value={formData.city} onChange={(e) => update("city", e.target.value)} placeholder="Sua cidade" /></label></div><label className="mt-4 block">O que mais incomoda hoje?<textarea rows={4} value={formData.message} onChange={(e) => update("message", e.target.value)} placeholder="Reajuste, autorizações, negativas, rede hospitalar..." /></label><button disabled={isSubmitting || submitted} className="mt-6 flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#ffd21f] px-6 font-bold text-[#173844] transition hover:bg-[#ffe05d] disabled:cursor-wait disabled:opacity-70">{submitted ? "Solicitação recebida" : isSubmitting ? "Abrindo seu WhatsApp..." : "Quero agendar minha reunião"}<ArrowRight size={18} /></button><p className="mt-4 text-xs leading-relaxed text-[#6d8a92]">Usaremos seus dados apenas para retornar sobre esta solicitação. A avaliação é individual e não garante redução, aprovação ou cobertura.</p></form></div></section>
 
       <footer className="border-t border-[#dcecef] bg-white px-5 py-10 sm:px-8 lg:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-[#6d8a92] sm:flex-row sm:items-center sm:justify-between"><div><strong className="text-[#173844]">Tractus Corretora de Seguros</strong><p className="mt-1">Cuidado consultivo para decisões importantes.</p></div><nav className="flex flex-wrap gap-x-5 gap-y-2"><Link to="/plano-de-saude-empresarial" className="hover:text-[#26738d]">Saúde Empresarial</Link><Link to="/beneficios-corporativos" className="hover:text-[#26738d]">Benefícios</Link><Link to="/blog" className="hover:text-[#26738d]">Conteúdos</Link><Link to="/" className="hover:text-[#26738d]">Site Tractus</Link></nav></div></footer>
+      <button onClick={() => handleWhatsApp("WhatsApp flutuante Saúde Landing")} className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_rgba(37,211,102,.35)] transition hover:-translate-y-1 hover:bg-[#20ba5a] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30" aria-label="Agendar reunião pelo WhatsApp"><MessageCircle size={27} /></button>
     </main>
   );
 };

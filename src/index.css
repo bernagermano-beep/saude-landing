@@ -96,6 +96,7 @@ All colors MUST be HSL.
   .saude-landing .logo-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
   .saude-landing .logo-track { display: flex; width: max-content; gap: 1rem; animation: saude-marquee 34s linear infinite; }
   .saude-landing .carrier-logo { @apply flex h-16 min-w-[150px] items-center justify-center rounded-2xl border border-[#dcecef] bg-white px-5 text-center text-sm font-semibold text-[#54727b] shadow-[0_8px_28px_rgba(23,56,68,.04)]; }
+  .saude-landing .carrier-logo img { max-height: 42px; max-width: 108px; object-fit: contain; }
 }
 
 @keyframes saude-reveal-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
